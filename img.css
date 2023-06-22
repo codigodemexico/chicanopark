@@ -1,71 +1,72 @@
-.carousel-wrapper{
-overflow: hidden;
-width: 90%;
-}
-.carousel-wrapper *{
-box-sizing:border-box ;
-}
-.carousel{
-transform-style: preserve-3d;
-}
-.carousel__photo {
-    opacity: 0;
-    position: absolute;
-    top:0;
-    width: 100%;
-    margin: auto;
-    padding: 1rem 4rem;
-    z-index: 100;
-    transition: transform .5s, opacity .5s, z-index .5s;
-  }
-  .carousel__photo.initial,
-.carousel__photo.active {
-  opacity: 1;
+.carousel {
+  max-width: 600px;
   position: relative;
-  z-index: 900;
+  margin: 0 auto;
 }
-.carousel__photo.prev,
-.carousel__photo.next {
-  z-index: 800;
+
+.carousel .carousel-item,
+.carousel .carousel-item-hidden {
+  display: none; /* hide all slide images not currently being viewed */
 }
-.carousel__photo.prev {
-  transform: translateX(-100%); /* Move 'prev' item to the left */
+
+.carousel .carousel-item-visible {
+  display: block; /* show current slide image */
+  animation: fadeVisibility 0.5s; /* for fading effect when switching between slides */
 }
-.carousel__photo.next {
-  transform: translateX(100%); /* Move 'next' item to the right */
+
+.carousel .carousel-item img {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
 }
-.carousel__button--prev,
-.carousel__button--next {
-  position: absolute;
-  top:50%;
-  width: 3rem;
-  height: 3rem;
-  background-color: #FFF;
-  transform: translateY(-50%);
-  border-radius: 50%;
-  cursor: pointer; 
-  z-index: 1001; /* Sit on top of everything */
-  border: 1px solid black;
+
+/* Navigation control styles */
+.carousel .carousel-actions {
+  display: flex;
+  width: 100%;
+  justify-content: space-between; /* put space between the navigation buttons */
+  position: absolute; /* position navigation buttons on top */
+  top: 50%; /* center navigation buttons on the slide */
+  transform: translateY(-50%); /* align navigation buttons */
 }
-.carousel__button--prev {
-  left:0;
+
+.carousel .carousel-actions button {
+  border-radius: 50px;
+  background-color: white;
+  border: 0;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
 }
-.carousel__button--next {
-  right:0;
+
+.carousel .carousel-actions button#carousel-button-prev {
+  margin-left: 20px; /* prevent previous button from touching the side*/
 }
-.carousel__button--prev::after,
-.carousel__button--next::after {
-  content: " ";
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  top: 50%;
-  left: 54%;
-  border-right: 2px solid black;
-  border-bottom: 2px solid black;
-  transform: translate(-50%, -50%) rotate(135deg);
+
+.carousel .carousel-actions button#carousel-button-next {
+  margin-right: 20px;  /* prevent next button from touching the side*/
 }
-.carousel__button--next::after {
-  left: 47%;
-  transform: translate(-50%, -50%) rotate(-45deg);
+
+.carousel-dots {
+  text-align: center; 
+}
+
+.dot {
+  opacity: 0.7; /* gray out dots for slides not being visted */
+}
+
+.dot:focus {
+  border: 1px solid black; /* dot for currently visited slide */
+}
+
+/* hanlde smooth transitions between slides */
+@keyframes fadeVisibility {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
 }
