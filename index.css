@@ -1,3 +1,7 @@
 body{
     background-color:whitesmoke !important;
 }
+.carousel-images{
+    image-rendering: optimizeQuality;
+    image-resolution: 100px;
+}
