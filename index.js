@@ -6,10 +6,10 @@ const { google } = require('googleapis');
 const app = express();
 
 const SCOPES = 'https://www.googleapis.com/auth/calendar.readonly';
-const GOOGLE_PRIVATE_KEY="<private-key>"
-const GOOGLE_CLIENT_EMAIL = "<client-email>"
-const GOOGLE_PROJECT_NUMBER = "<project-number>"
-const GOOGLE_CALENDAR_ID = "<calendar-id>"
+const GOOGLE_PRIVATE_KEY="< AIzaSyAU8pWn2ryWy0_BSBjxjG2NBEHwZmD6Hcc>"
+const GOOGLE_CLIENT_EMAIL = "<cpscchicanopark70@gmail.coml>"
+const GOOGLE_PROJECT_NUMBER = "<google-calender-api>"
+const GOOGLE_CALENDAR_ID = "<cpscchicanopark70@gmail.com>"
 
 
 const jwtClient = new google.auth.JWT(
@@ -48,4 +48,4 @@ calendar.events.list({
 
 app.listen(3000, () => console.log(`App listening on port 3000!`));
 
-// This code is contributed by Yashi Shukla
+
